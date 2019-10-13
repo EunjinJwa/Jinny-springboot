@@ -53,6 +53,7 @@ public class Java03_Predicate {
      * @param <T>
      * @return
      */
+
     private static <T> List<T> filter(List<T> list, Predicate<T> isFilter) {
         List<T> result = new ArrayList<>();
         for(T input : list){

@@ -1,4 +1,4 @@
-package javaTraining;
+package javaTraining.streamAPI;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
