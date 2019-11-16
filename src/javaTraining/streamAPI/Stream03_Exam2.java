@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  *
  * Intermediate Operation Method
  *      - 중간단계 메서드
- *      - Stream을 리턴하기 때문에 계속 Method Chaining을 통해 무엇을 해야할지 스트림에게 지시할 수 있음.
+ *      - Stream을 리턴하기 때문에 계속 Method Chainging을 통해 무엇을 해야할지 스트림에게 지시할 수 있음.
  * Terminal Operation Method
  *      - 끝내는 메서드
  *

@@ -14,7 +14,7 @@ import java.util.stream.IntStream;
  * Stream 처리를 할때 병렬로 나누어 stream을 진행할 수 있도록 한다. (병렬 => Core 를 여러개로 나누어 진행)
  * 진행되는 순서는 보장되지 않는다.
  */
-public class Stream05_Parallel {
+public class Stream10_Parallel {
 
     public static void main(String[] args) {
 

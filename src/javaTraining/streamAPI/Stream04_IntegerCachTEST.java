@@ -2,7 +2,8 @@ package javaTraining.streamAPI;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Integer Cash 및 Integer Object간 비교구문 이해
@@ -36,7 +37,7 @@ public class Stream04_IntegerCachTEST {
         System.out.println(
                 intList.stream()
                         .filter(i -> i == findInt127)
-                        .collect(Collectors.toList())
+                        .collect(toList())
         ); // 결과 : [127]
 
         /**
@@ -48,7 +49,7 @@ public class Stream04_IntegerCachTEST {
         System.out.println(
                 intList.stream()
                         .filter(i -> i == findInt150)
-                        .collect(Collectors.toList())
+                        .collect(toList())
         ); // 결과 : [] . List의 150과 findInt150은 서로 다른 주소값을 가짐. 따라서 같지 않으므로 empty 를 리턴.
 
         /**
@@ -59,7 +60,7 @@ public class Stream04_IntegerCachTEST {
         System.out.println(
                 intList.stream()
                        .filter(i -> i.equals(findInt150))
-                        .collect(Collectors.toList())
+                        .collect(toList())
         ); // 결과 : [150]
 
 
