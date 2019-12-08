@@ -32,17 +32,24 @@ public class Test04 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String input = br.readLine();
 
-        Bank bank = new Bank();
-        bank.open(Arrays.stream(input.split(",")).map(TransactionRequest::new).collect(Collectors.toList()));
+		try {
 
-        if(bank.peakRequests <= 1) {
-            System.err.println("WARN: Only one thread is used for processing. It can be a reason of low performance issues.");
-        }
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String input = br.readLine();
 
-        System.out.println(bank.getCurrentAccountReport());
+			Bank bank = new Bank();
+			bank.open(Arrays.stream(input.split(",")).map(TransactionRequest::new).collect(Collectors.toList()));
+
+			if (bank.peakRequests <= 1) {
+				System.err.println("WARN: Only one thread is used for processing. It can be a reason of low performance issues.");
+			}
+
+			System.out.println(bank.getCurrentAccountReport());
+
+		} catch (Exception e) {
+
+		}
 	}
 	
 	 static class TransactionRequest {
@@ -108,7 +115,7 @@ public class Test04 {
 
 	        void open(List<TransactionRequest> requests) {
 	            /* Parallel processing is intended. It's not a reason of the problem. */
-	            requests.parallelStream().forEach(this::request);
+	            // requests.parallelStream().forEach(this::request);
 	        }
 
 	        String getCurrentAccountReport() {

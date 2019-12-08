@@ -68,12 +68,6 @@ public class java06_higherOrderFunc {
                         .apply(4)   // 4 -> {10 + 2 + 4}        return 은 integer
         );
 
-
-
-
-
-
-
     }
 
     /**
