@@ -15,6 +15,7 @@ public class Etcs {
     public static void main(String[] args) {
         System.out.println(summation(8));
         System.out.println(longest("aretheyhere", "yestheyarehere"));
+        isSquare(0);
     }
 
     public int sum(List<?> mixed) {
@@ -31,6 +32,14 @@ public class Etcs {
         StringBuffer resultStr = new StringBuffer();
         s1.concat(s2).chars().distinct().sorted().forEach(i -> resultStr.append((char) i));
         return resultStr.toString();
+    }
+
+    public static boolean isSquare(int n) {
+
+        if(n < 0) return false;
+        double doubleNum = Math.sqrt(n);
+        int intNum = (int)doubleNum;
+        return doubleNum - intNum > 0 ? false : true;
     }
 
 
