@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(value="com.nsuslab.denma.backend.migration.mapper.rebuild", sqlSessionFactoryRef = "reBuildSqlSessionFactory")
+@MapperScan(value="com.jinny.java.springboot.multidb.mapper.rebuild", sqlSessionFactoryRef = "reBuildSqlSessionFactory")
 @EnableTransactionManagement
 public class ReBuildDabaseConfig {
 
@@ -30,7 +30,7 @@ public class ReBuildDabaseConfig {
     public SqlSessionFactory reBuildSqlSessionFactory(@Qualifier("reBuildDataSource") DataSource mysqlDataSource, ApplicationContext applicationContext)throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean =new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(mysqlDataSource);
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper.rebuild/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/rebuild/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 

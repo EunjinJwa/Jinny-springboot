@@ -9,10 +9,8 @@ public class TestService {
 
     @Async
     public void asyncTest(String name) throws Exception{
-        for (int i = 0; i < 10; i++) {
-            System.out.println(name + " : " + i);
-            Thread.sleep(1000);
-        }
+        System.out.println(name);
+        Thread.sleep(1000);
     }
 
 }

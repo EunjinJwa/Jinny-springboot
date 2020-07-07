@@ -33,7 +33,7 @@ public class CustardDabaseConfig {
     public SqlSessionFactory custardSqlSessionFactory(@Qualifier("custardDataSource") DataSource mysqlDataSource, ApplicationContext applicationContext)throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean =new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(mysqlDataSource);
-        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper.custard/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:/mapper/custard/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 
