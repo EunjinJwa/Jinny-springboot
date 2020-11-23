@@ -8,20 +8,7 @@
     </settings>
 
     <typeAliases>
-        <!-- TypeHandler -->
-        <typeAlias alias="jsonTypeHandler" type="com.nsuslab.denma.servicenew.typeHandler.JsonTypeHandler"/>
-        <typeAlias alias="jsonArrayTypeHandler" type="com.nsuslab.denma.servicenew.typeHandler.JsonArrayTypeHandler"/>
-        <typeAlias alias="enumTypeHandler" type="com.nsuslab.denma.servicenew.typeHandler.EnumTypeHandler"/>
 
-        <!-- paramVO -->
-        <typeAlias alias="enumCodeParamVO" type="com.nsuslab.denma.servicenew.model.EnumCodeParamVO"/>
-        <typeAlias alias="handHistoryParamVO" type="com.nsuslab.denma.servicenew.model.HandHistoryParamVO"/>
-
-        <!--resultVO -->
-        <typeAlias alias="sessionResultVO" type="com.nsuslab.denma.servicenew.model.SessionResultVO"/>
-        <typeAlias alias="handHistoryResultVO" type="com.nsuslab.denma.servicenew.model.HandHistoryResultVO"/>
-        <typeAlias alias="tourneyTrophyResultVO" type="com.nsuslab.denma.servicenew.model.TourneyTrophyResultVO"/>
-        <typeAlias alias="searchByHandIdResultVO" type="com.nsuslab.denma.servicenew.model.SearchByHandIdResultVO"/>
     </typeAliases>
     
 </configuration>
