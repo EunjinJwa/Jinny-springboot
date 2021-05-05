@@ -1,5 +1,7 @@
 # gitignore 명시
 /.idea/
 /.idea/workspace.xml
+/target/
+/target/
 /out/*
 /src/codingTest/nsus_codingTest/*

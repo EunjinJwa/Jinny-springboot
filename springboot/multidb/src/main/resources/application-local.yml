@@ -17,10 +17,10 @@ spring:
         leakDetectionThreshold: 60000   # 커넥션이 풀에서 벗어날 수 있는 대기 시간
   denmamysql:
     datasource:
-      driver-class-name: com.mysql.cj.jdbc.Driver
-      jdbc-url: jdbc:mysql://localhost:3306/db_kassy?serverTimezone=UTC&username=denma_admin&password=Denma19)#
       hikari:
-        username: denma_admin
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/db_kassy2?serverTimezone=UTC&username=denma_admin&password=Denma19)#
+        username: denma_test
         password: Denma19)#
         connectionTimeout: 30000    # 풀에서 커넥션을 구하는 대기 시간
         maxLifetime: 1800000  # 풀에서 유지할 유휴 커넥션의 최대 수명시간 (사용중이 커넥션은 영향 없음)
