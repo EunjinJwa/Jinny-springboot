@@ -1,6 +1,5 @@
 package com.jinny.java.springboot.multidb.proxy;
 
-import org.junit.rules.Stopwatch;
 import org.springframework.util.StopWatch;
 
 public class PayProxy implements Payment{

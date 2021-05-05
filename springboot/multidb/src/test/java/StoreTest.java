@@ -1,7 +1,7 @@
 import com.jinny.java.springboot.multidb.proxy.PayProxy;
 import com.jinny.java.springboot.multidb.proxy.Payment;
 import com.jinny.java.springboot.multidb.proxy.Store;
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 public class StoreTest {
 
