@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jinny.java.springboot.lottery.mapper.LotteryMapper">
+
+    <insert id="insertLottoNumber" parameterType="java.util.HashMap">
+        insert into lucky_lottery (date, drw_no, number_type, drwt_no)
+        values (#{date}, #{drwNo}, #{numberType}, #{drwtNo})
+    </insert>
+
+    <select id="selectLastDrwNo" resultType="java.lang.Integer">
+        select max(drw_no)
+        from lucky_lottery
+    </select>
+    
+    <sql id="getRecentNumberList">
+        select MAX(drw_no) as max_drw_no, drwt_no, count(*) as cnt
+        from lucky_lottery
+        where drw_no > #{searchDrwNo}
+        and number_type = 'DRWT'
+        group by drwt_no
+    </sql>
+    
+    <select id="getLottoNumber1" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+            <include refid="getRecentNumberList"/>
+        ) a
+        order by cnt desc, max_drw_no desc
+        limit 10
+    </select>
+
+    <select id="getLottoNumber2" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt <= 2
+        ]]>
+        order by drwt_no, max_drw_no desc
+    </select>
+
+    <select id="getLottoNumber3" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt >= 4
+        ]]>
+        order by max_drw_no desc
+    </select>
+
+    <select id="getLottoNumber4" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt between 2 and 3
+        ]]>
+        order by max_drw_no desc
+    </select>
+
+    <select id="getLottoNumber5" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt <= 2
+        ]]>
+        and drwt_no in (
+            select drwt_no from lucky_lottery c where c.drw_no > #{count} + 7
+        )
+        order by max_drw_no desc
+    </select>
+
+    <select id="getLottoNumber6" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt <= 2
+            and drwt_no < 10
+        ]]>
+        order by max_drw_no desc
+    </select>
+
+    <select id="getLottoNumber7" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt = 1
+            and drwt_no >= 10
+        ]]>
+        order by max_drw_no desc
+    </select>
+
+    <select id="getLottoNumber8" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt = 1
+        ]]>
+        order by max_drw_no desc
+    </select>
+
+    <select id="getLottoNumberA"  parameterType="com.jinny.java.springboot.lottery.common.LottoParam" resultType="java.lang.Integer">
+        select drwt_no
+        from (
+        <include refid="getRecentNumberList"/>
+        ) a
+        <![CDATA[
+            where cnt = #{cnt}
+        ]]>
+        order by max_drw_no desc
+    </select>
+</mapper>
