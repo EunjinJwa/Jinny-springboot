@@ -1,5 +1,6 @@
 package com.jinny.java.springboot.lottery.mapper;
 
+import com.jinny.java.springboot.lottery.common.LottoParam;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -23,4 +24,13 @@ public interface LotteryMapper {
 
     int selectLastDrwNo();
 
+    List<Integer> getLottoNumber6(int lastNum);
+
+    List<Integer> getLottoNumber7(int lastNum);
+
+    List<Integer> getLottoNumber8(int lastNum);
+
+    List<Integer> getLottoNumber9(int lastNum);
+
+    List<Integer> getLottoNumberA(LottoParam param);
 }

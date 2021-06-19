@@ -1,12 +1,15 @@
 package com.jinny.java.springboot.lottery.controller;
 
 import com.google.gson.Gson;
+import com.jinny.java.springboot.lottery.common.Constants;
+import com.jinny.java.springboot.lottery.common.LuckyNumberType;
 import com.jinny.java.springboot.lottery.dto.LottoNumber;
 import com.jinny.java.springboot.lottery.service.LotteryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -67,9 +70,20 @@ public class LotteryController {
         return result.toString();
     }
 
-    @GetMapping(path = "/lotto/number/get/{count}", produces = "application/json")
-    public HashMap<Integer, List<Integer>> getLottoNumber(@PathVariable Integer count){
-        return lotteryService.getLottoNumber(count);
+    @GetMapping(path = "/lotto/get/{count}", produces = "application/json")
+    public String getLottoNumber(@PathVariable Integer count,
+                                                          @RequestParam String key){
+        LuckyNumberType luckyNumberType;
+        count = count > 5 ? 5 : count;
+        if (!Constants.LOTTO_AUTHORITY_KEY.getAsList().contains(key)) {
+            luckyNumberType = new LuckyNumberType(key, count);
+            lotteryService.getLottoNumber(luckyNumberType);
+            return luckyNumberType.toString();
+        } else {
+            return "[ " + key + " ] is not an authenticated key.";
+        }
+
+
     }
 
 
