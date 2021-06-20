@@ -1,8 +1,10 @@
 package dev.jinny.java.study.hellospringboot.repository;
 
 import dev.jinny.java.study.hellospringboot.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
+
 
 public class MemoryMemberRepository implements MemberRepository {
 

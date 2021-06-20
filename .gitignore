@@ -2,7 +2,7 @@
 /.idea/
 /.idea/workspace.xml
 /target/
-/target/
+*/target/*
 /src/codingTest/nsus_codingTest/*
 
 ### STS ###
