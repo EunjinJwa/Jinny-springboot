@@ -16,4 +16,10 @@ public class TestController {
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
+    @GetMapping(path="/test/exception")
+    public ResponseEntity<Object> exceptionTest() {
+
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+
 }

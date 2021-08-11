@@ -21,16 +21,4 @@ public class WorkerApplication {
     public static void main(String[] args) {
         SpringApplication.run(WorkerApplication.class, args);
     }
-
-    @Bean
-    public GracefulShutdown gracefulShutdown() {
-        return new GracefulShutdown();
-    }
-
-    @Bean
-    public ConfigurableServletWebServerFactory webServerFactory(final GracefulShutdown gracefulShutdown) {
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        factory.addConnectorCustomizers(gracefulShutdown);
-        return factory;
-    }
 }
