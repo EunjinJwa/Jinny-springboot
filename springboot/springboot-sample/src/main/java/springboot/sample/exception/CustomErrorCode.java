@@ -5,6 +5,12 @@ public enum CustomErrorCode {
     SAMPLE_ERROR,
     INTERNAL_ERROR,
     INVALID_REQUEST,
-    ALREAY_EXIST
+    ALREAY_EXIST,
+    NOT_AUTH,
+
+    // scheduler error
+    NOT_RUNNING,
+    ALREADY_RUNNING;
+
 
 }

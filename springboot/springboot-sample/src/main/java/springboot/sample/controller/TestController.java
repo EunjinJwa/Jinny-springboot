@@ -1,5 +1,7 @@
 package springboot.sample.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +12,8 @@ import springboot.sample.exception.MemberValidationException;
 
 @RestController
 public class TestController {
+
+    private static final Logger log = LoggerFactory.getLogger(TestController.class);
 
     @GetMapping(value = "/test")
     public ResponseEntity<Object> callTest() {
@@ -39,6 +43,22 @@ public class TestController {
             throw new MemberValidationException("kassy");
         }
 
+        return new ResponseEntity<>("OK", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/test/sleep/{second}")
+    public ResponseEntity<Object> sleepTest(@PathVariable Integer second) {
+
+        if (second > 0) {
+            for (int i = 0; i <= second; i++) {
+                log.info("sleepTest...{}", i);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
