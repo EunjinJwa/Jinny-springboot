@@ -1,5 +1,6 @@
 package springboot.sample.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -42,10 +43,10 @@ public class TestController {
             // 이미 사용중인 정보입니다.
             throw new MemberValidationException("kassy");
         }
-
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
 
+    @ApiOperation(value = "sleep 스레드 생성", notes = "지정한 초 만큼 sleep 스레드를 생성합니다. ")
     @GetMapping(value = "/test/sleep/{second}")
     public ResponseEntity<Object> sleepTest(@PathVariable Integer second) {
 
@@ -61,6 +62,8 @@ public class TestController {
         }
         return new ResponseEntity<>("OK", HttpStatus.OK);
     }
+
+
 
 
 }

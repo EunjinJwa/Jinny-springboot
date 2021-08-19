@@ -77,6 +77,6 @@ public class ScheduledTasks {
 
 
     public String getScheduledTasks() {
-        return gson.toJson(scheduledTasks);
+        return scheduledTasks.toString();
     }
 }
