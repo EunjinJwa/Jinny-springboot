@@ -1,4 +1,4 @@
-package springboot.sample.controller;
+package springboot.sample.v2.controller;
 
 import com.google.gson.Gson;
 import io.swagger.annotations.Api;
@@ -14,8 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/v2")
 @Api(tags = "member")
-public class MemberController {
+public class MemberV2Controller {
 
     List<Member> memberList = new ArrayList<>();
 

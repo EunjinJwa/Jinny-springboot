@@ -7,6 +7,7 @@ public enum CustomErrorCode {
     INVALID_REQUEST,
     ALREAY_EXIST,
     NOT_AUTH,
+    NOT_EXIST,
 
     // scheduler error
     NOT_RUNNING,
