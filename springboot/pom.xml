@@ -60,11 +60,6 @@
             <version>1.13</version>
             <type>jar</type>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
-<!--            <scope>provided</scope>-->
-<!--        </dependency>-->
 
         <!-- GSON 사용을 위한 Dependency 추가 -->
         <dependency>

@@ -11,8 +11,18 @@
 
     <groupId>com.jinny.java.springboot</groupId>
     <artifactId>springboot-sample</artifactId>
+    <packaging>war</packaging>
 
     <dependencies>
+
+        <!-- 외장 tomcat 사용시 필요 라이브러리 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- swagger -->
         <!-- https://mvnrepository.com/artifact/io.springfox/springfox-swagger2 -->
         <dependency>
             <groupId>io.springfox</groupId>
