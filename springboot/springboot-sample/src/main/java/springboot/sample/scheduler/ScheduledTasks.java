@@ -4,12 +4,11 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.SchedulingException;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 import springboot.sample.exception.CustomErrorCode;
 import springboot.sample.exception.SchedulerException;
-import springboot.sample.service.TestService1;
+import springboot.sample.service.TestService;
 import springboot.sample.type.Constants.*;
 
 
@@ -30,7 +29,7 @@ public class ScheduledTasks {
     private TaskScheduler taskScheduler;
 
     @Autowired
-    private TestService1 testService1;
+    private TestService testService1;
 
     public void startBatchTest(SchedulerType scheduleId) {
         ScheduledFuture<?> task = null;
