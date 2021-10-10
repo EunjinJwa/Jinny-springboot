@@ -1,7 +1,7 @@
 package dev.jinny.java.study.general.training.javaEtc;
 
 
-public class JavacodeTest {
+public class MathTest {
 
 
 
