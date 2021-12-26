@@ -1,6 +1,8 @@
 package dev.jinny.java.study.general.training.javaEtc;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TempTest {
 
@@ -33,7 +35,13 @@ public class TempTest {
 //        emojiTest();
 
 
-        numberAccTest();
+        String brandname = "brand aabb";
+        System.out.println(brandname + " | " + brandname.indexOf("brand aa"));
+
+
+//        numberAccTest();
+
+        streamForeachTest();
     }
 
     private static void emojiTest() {
@@ -62,4 +70,23 @@ public class TempTest {
 
 
     }
+
+    private static void streamForeachTest() {
+        List<String> testList = new ArrayList<>();
+        testList.add("A");
+        testList.add("B");
+        testList.add("C");
+        testList.add("D");
+        testList.add("E");
+
+        testList.stream().forEach(d -> {
+            System.out.println(d);
+            if (d.equals("B")) {
+                System.out.println("pass");
+            }
+        });
+
+
+    }
+
 }

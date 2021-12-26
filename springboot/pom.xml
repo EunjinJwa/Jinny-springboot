@@ -10,8 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>multidb</module>
-        <module>singledb</module>
-        <module>springboot-sample</module>
+        <module>simple-project</module>
     </modules>
 
     <parent>
