@@ -3,7 +3,7 @@ package dev.jinny.java.study.general.training.thread;
 /**
  * Thread 생성하는 방법.
  * 1. implements Runnable 하는 방법 (권장)
- * 2. extends Thread 하는 방법 
+ * 2. extends Thread 하는 방법
  * Created by Eunjin on 2022-01-08.
  */
 public class ThreadEx01 {

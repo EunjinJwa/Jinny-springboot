@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Kassy.
@@ -55,6 +56,22 @@ public class ComparatorExam01 {
             System.out.println(s.toString());
         }
 
+
+        /**
+         * "람다식 사용한 정렬"
+         * 오름차순 / 내림차순은 (o1, o2) 의 위치를 변경해주면 된다.
+         */
+        // 문자열 값을 기준으로 String.compareTo()를 사용한 람다식 정렬
+        List sortedList = studentList.stream().sorted((o1, o2) -> o1.name.compareTo(o2.name)).collect(Collectors.toList());
+        System.out.println("람다 sorte list - name 오름차순 : " + sortedList);
+
+        // 숫자 값을 기준으로 Comparator 를 구현한 람다식 정렬
+        List sortedList2 = studentList.stream().sorted((o2, o1) -> {
+            if(o1.score == o2.score) return 0;
+            else if (o1.score < o2.score) return -1;
+            else return 1;
+        }).collect(Collectors.toList());
+        System.out.println("람다 sort list - score 오름차순 : " + sortedList2);
     }
 }
 
