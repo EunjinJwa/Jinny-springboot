@@ -1,14 +1,9 @@
 # JinnyJavaProject
 
-Java 통합 개발 관리 프로젝트
+(Old) Java 통합 프로젝트
+현재 Lottery 프로젝트만 남겨두고 나머지 프로젝트 및 레파지토리 분리함. 
 
 > module
 
 * project
   * 직접 개발한 프로젝트 모듈
-* study
-  * java study용 코드 정리
-* utils
-  * util로 사용 가능한 기능 모듈
-* template
-  * Project setting tamplate 
