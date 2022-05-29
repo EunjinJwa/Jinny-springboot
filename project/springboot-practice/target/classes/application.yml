@@ -1,0 +1,10 @@
+server:
+  port: 2022
+practice:
+  http:
+    secretkey: JINNY!@#
+    auth-token-header:
+      name: Authorization
+    auth-token:
+      - fdasrv34atdzbt4zeex7y
+      - Q2xpZW50SklOTlkhQCMxMjM=
