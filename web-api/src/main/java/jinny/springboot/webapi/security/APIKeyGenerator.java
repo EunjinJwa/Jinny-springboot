@@ -6,4 +6,5 @@ public interface APIKeyGenerator {
 
     String genSecretKey (ClientId clientId);
 
+    ClientId getClientIdByApiKey (String apiKey);
 }

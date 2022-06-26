@@ -1,10 +1,13 @@
 package jinny.springboot.webapi.security;
 
+import org.springframework.stereotype.Service;
+
 import javax.crypto.KeyGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.UUID;
 
+@Service
 public class EnumAPIKeyGenerator implements APIKeyGenerator{
 
     @Override
@@ -21,6 +24,15 @@ public class EnumAPIKeyGenerator implements APIKeyGenerator{
                 return generateRandomUUIDKey();
             default:
                 return generateSecretKey();
+        }
+    }
+
+    @Override
+    public ClientId getClientIdByApiKey (String apiKey) {
+        try {
+            return ClientId.valueOf(KeyEncoder.base64Decode(apiKey).split(":")[0]);
+        } catch (IllegalArgumentException e) {
+            return ClientId.NONE;
         }
     }
 
