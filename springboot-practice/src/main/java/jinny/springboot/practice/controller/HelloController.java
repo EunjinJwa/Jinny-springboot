@@ -1,6 +1,6 @@
 package jinny.springboot.practice.controller;
 
-import jinny.springboot.practice.async.HelloAsyncService;
+import jinny.springboot.practice.async.AsyncService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class HelloController {
 
-    private final HelloAsyncService helloAsyncService;
+    private final AsyncService asyncService;
     @GetMapping(path = "/hello")
     public String hello () {
         return "Hello !";
@@ -20,7 +20,7 @@ public class HelloController {
         for (int k = 0; k < 5; k++) {
             System.out.println("start [ "+k+" ] ==============");
             for (int i = 0; i < 10; i++) {
-                helloAsyncService.sleep(i);
+                asyncService.sleep(i);
             }
             System.out.println("end [ "+k+" ] ==============");
         }

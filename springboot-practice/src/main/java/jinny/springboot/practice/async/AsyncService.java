@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Async("asyncExecute")
-public class HelloAsyncService {
+public class AsyncService {
 
     public void sleep(int index) throws InterruptedException {
         for (int i = 0; i < 15; i++) {
