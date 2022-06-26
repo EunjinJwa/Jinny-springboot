@@ -1,6 +1,7 @@
 package jinny.springboot.webapi.security;
 
 import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public enum ClientKey {
 
@@ -10,18 +11,23 @@ public enum ClientKey {
     _EXTERNAL_SERVICE(ClientId.EXTERNAL_SERVICE, "0658c816cb2e437a87dcbcfe8766a957");
 
     private ClientId clientId;
-    private String secretKey;
+    private String accessKey;
 
-    ClientKey (ClientId clientId, String secretKey) {
+    ClientKey (ClientId clientId, String accessKey) {
         this.clientId = clientId;
-        this.secretKey = secretKey;
+        this.accessKey = accessKey;
     }
 
     public ClientId getClientId () {
         return this.clientId;
     }
-    public String getClientKeyToString () {
-        return this.clientId.toString().concat(":").concat(this.secretKey);
+
+    public static ClientId getClientIdByAsccessKey (String accessKey) {
+        try {
+            return Arrays.stream(ClientKey.values()).filter(k -> k.accessKey.equals(accessKey)).findFirst().get().getClientId();
+        } catch (NoSuchElementException e) {
+            return ClientId.NONE;
+        }
     }
 
     public static ClientKey getClientKey (ClientId clientId) {

@@ -8,18 +8,11 @@ import java.util.Base64;
 import java.util.UUID;
 
 @Service
-public class EnumAPIKeyGenerator implements APIKeyGenerator{
+public class EnumAPIKeyService implements APIKeyService {
 
     @Override
-    public String genBasicApiKey (ClientId clientId) {
-        ClientKey clientKey = ClientKey.getClientKey(clientId);
-        return KeyEncoder.base64Encode(clientKey.getClientKeyToString());
-    }
-
-    @Override
-    public String genSecretKey(ClientId clientId) {
-        ClientKey clientKey = ClientKey.getClientKey(clientId);
-        switch (clientKey.getClientId()) {
+    public String genAccessKey (ClientId clientId) {
+        switch (clientId) {
             case TEST:
                 return generateRandomUUIDKey();
             default:
@@ -28,12 +21,8 @@ public class EnumAPIKeyGenerator implements APIKeyGenerator{
     }
 
     @Override
-    public ClientId getClientIdByApiKey (String apiKey) {
-        try {
-            return ClientId.valueOf(KeyEncoder.base64Decode(apiKey).split(":")[0]);
-        } catch (IllegalArgumentException e) {
-            return ClientId.NONE;
-        }
+    public ClientId getClientIdByAccessKey (String apiKey) {
+        return ClientKey.getClientIdByAsccessKey(apiKey);
     }
 
     private String generateSecretKey () {
