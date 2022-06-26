@@ -5,6 +5,7 @@ import java.util.Arrays;
 public enum ClientKey {
 
     _TEST(ClientId.TEST, "1477d7370c3946479e506f08268de4a5"),
+    _ADMIN(ClientId.ADMIN, "Uh28dAo8rIGbDq3Xmh5E5w=="),
     _WEB_FRONT(ClientId.WEB_FRONT, "6d51bcb94fe94db6b43b9b0af98c3eb7"),
     _EXTERNAL_SERVICE(ClientId.EXTERNAL_SERVICE, "0658c816cb2e437a87dcbcfe8766a957");
 

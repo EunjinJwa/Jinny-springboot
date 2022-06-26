@@ -4,6 +4,7 @@ public enum ClientId {
 
     TEST,
     WEB_FRONT,
+    ADMIN,
     EXTERNAL_SERVICE
 
 }
