@@ -1,20 +1,24 @@
 package jinny.springboot.webapi.security;
 
-import org.springframework.stereotype.Component;
-
 import javax.crypto.KeyGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 import java.util.UUID;
 
-@Component
 public class APIKeyGenerator {
-    public String genBasicApiKey (ClientId clientId) {
-        return KeyEncoder.base64Encode(ClientKey.getClientKeyToString(clientId));
+
+    private ClientKey clientKey;
+
+    public APIKeyGenerator (ClientId clientId) {
+        this.clientKey = ClientKey.getClientKey(clientId);
     }
 
-    public String genSecretKey(ClientId clientId) {
-        switch (clientId) {
+    public String genBasicApiKey () {
+        return KeyEncoder.base64Encode(clientKey.getClientKeyToString());
+    }
+
+    public String genSecretKey() {
+        switch (this.clientKey.getClientId()) {
             case TEST:
                 return generateRandomUUIDKey();
             default:

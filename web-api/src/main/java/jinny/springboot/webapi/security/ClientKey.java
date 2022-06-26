@@ -16,12 +16,15 @@ public enum ClientKey {
         this.secretKey = secretKey;
     }
 
-    public static String getClientKeyToString (ClientId clientId) {
-        ClientKey clientKey = Arrays.stream(ClientKey.values()).filter(c -> c.clientId.equals(clientId)).findFirst().get();
-        if (clientKey == null) {
-            return null;
-        }
-        return clientKey.clientId.toString().concat(":").concat(clientKey.secretKey);
+    public ClientId getClientId () {
+        return this.clientId;
+    }
+    public String getClientKeyToString () {
+        return this.clientId.toString().concat(":").concat(this.secretKey);
+    }
+
+    public static ClientKey getClientKey (ClientId clientId) {
+        return Arrays.stream(ClientKey.values()).filter(c -> c.clientId.equals(clientId)).findFirst().get();
     }
 
 }
