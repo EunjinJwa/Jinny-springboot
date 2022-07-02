@@ -1,6 +1,6 @@
 package jinny.springboot.practice.security;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;

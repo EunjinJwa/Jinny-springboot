@@ -2,7 +2,7 @@ package jinny.springboot.practice.security;
 
 import jinny.springboot.practice.CustomUserDetailService;
 import jinny.springboot.practice.security.jwt.JwtTokenProvider;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Base64;

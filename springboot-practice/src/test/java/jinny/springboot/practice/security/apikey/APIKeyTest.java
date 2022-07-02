@@ -1,6 +1,6 @@
 package jinny.springboot.practice.security.apikey;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 class APIKeyTest {
 
