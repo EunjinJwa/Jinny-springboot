@@ -47,8 +47,8 @@ public class SecurityConfiguration2 extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilter(filter)
                 .authorizeRequests()
-                .anyRequest()
-                .authenticated()
+                .anyRequest().permitAll()
+//                .authenticated()
                 .and()
                 .formLogin().disable();
 
