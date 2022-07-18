@@ -1,5 +1,6 @@
 package jinny.springboot.toy;
 
+import jinny.springboot.toy.config.TestProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
@@ -12,6 +13,7 @@ public class SpringbootToyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootToyApplication.class, args);
+
 	}
 
 }
